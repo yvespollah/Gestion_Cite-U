@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- bootsrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page information</title>
+</head>
+<body>
+  {% include 'systeme_U/navbar.html' %}
+  <br>
+   <section class="vh-150">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
+            <div class="card-body py-4 px-4 px-md-5">
+  
+                <div class="alert alert-primary"><h1> Etudiant et Numero de Chambre(Collectif) </h1></div>
+              
+              </p>
+              <a href="{% url 'chambre_individuel' %}" class="btn btn-primary">Chambre Individuel</a>
+              <hr class="my-4">
+            
+            <hr class="my-4">                          
+              <table class="table table-striped">
+                <thead class="thead bg-dark text-white">
+                    <tr>
+                        
+                        <th scope="col-md-2">Nom Etudiant</th>
+                         <th scope="col-md-2">No Chambre</th>
+                         
+                         <th></th>
+                    </tr>
+                </thead>
+                {% for etudiant in etudiants  %} 
+                   {% if etudiant.id_etudiant.niveau in niv123 %}
+                    <tr>
+
+                      <td >
+                        <p class="lead fw-normal mb-0">{{ etudiant.id_etudiant.nom | title }} </p> <!--le | (pipe) cest por que tout les entrer commence par ube letre magiscule-->
+                      </td>
+                      <td >
+                        <p class="lead fw-normal mb-0">{{ etudiant.id_logement.numero | title }} </p> <!--le | (pipe) cest por que tout les entrer commence par ube letre magiscule-->
+                      </td>
+                     
+                    </tr>
+                  
+                    {% endif %}
+                {% endfor %}
+            </table><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+</body>
+</html>
+
+
+

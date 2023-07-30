@@ -11,15 +11,17 @@
         <script>src="{% static 'systeme_U/js/bootstrap.js' %}"</script>
 </head>
 <body>
+    {% include 'systeme_U/navbar.html' %}
+    <br><br><br>
     {% block content %}
     <div class="container bg-light">
-    <div class="alert alert-success"><h1> Logement </h1></div>
+    <div class="alert alert-primary"><h1> Logement </h1></div>
     <div class="container bg-light">
     <form method="post">
         {% csrf_token %}
         
         {{ form.as_p}}
-        <button  class="btn btn-success"> Envoyer </button>
+        <button  class="btn btn-primary"> Envoyer </button>
     </form>
     </div>
 </div>
